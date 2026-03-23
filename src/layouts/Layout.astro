@@ -1,15 +1,44 @@
 ---
-import '../styles/default.scss';
+import '../styles/default.css';
+import Nav from '../components/Nav.astro';
+
+interface Props {
+	title?: string;
+}
+
+const { title = 'Frank Buckley' } = Astro.props;
+const fullTitle = title === 'Frank Buckley' ? title : `${title} — Frank Buckley`;
+
+const socialLinks = [
+	{ href: "https://bsky.app/profile/YOUR_HANDLE", label: "Bluesky" },
+	{ href: "https://www.linkedin.com/in/YOUR_HANDLE", label: "LinkedIn" },
+	{ href: "https://orcid.org/YOUR_ORCID_ID", label: "ORCID" },
+	{ href: "https://www.researchgate.net/profile/YOUR_HANDLE", label: "ResearchGate" },
+];
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" class="antialiased">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>Frank Buckley</title>
+		<link rel="alternate" type="application/rss+xml" title="Frank Buckley" href="/rss.xml" />
+		<title>{fullTitle}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="min-h-screen flex flex-col text-[var(--color-text)] leading-relaxed">
+		<header class="border-b border-[var(--color-border)] px-8 py-4">
+			<Nav />
+		</header>
+		<main class="flex-1 w-full max-w-2xl mx-auto px-8 py-16 max-sm:px-4 max-sm:py-8">
+			<slot />
+		</main>
+		<footer class="border-t border-[var(--color-border)] px-8 py-4 text-center text-sm text-[var(--color-text-muted)]">
+			<nav class="flex justify-center gap-6 mb-2">
+				{socialLinks.map(({ href, label }) => (
+					<a href={href} class="hover:text-[var(--color-text)] transition-colors duration-150" target="_blank" rel="noopener noreferrer">{label}</a>
+				))}
+			</nav>
+			<p>&copy; {new Date().getFullYear()} Frank Buckley</p>
+		</footer>
 	</body>
 </html>
 
