@@ -9,15 +9,15 @@ const links = [
 ];
 ---
 
-<nav class="max-w-2xl mx-auto">
-  <ul class="flex gap-8 list-none max-sm:gap-4">
+<nav class="mx-auto" style="max-width: 42rem;">
+  <ul class="d-flex gap-4 list-unstyled mb-0">
     {links.map(({ href, label }) => (
       <li>
         <a
           href={href}
           class:list={[
-            "text-[var(--color-text-muted)] no-underline text-sm transition-colors duration-150 hover:text-[var(--color-text)]",
-            { "!text-[var(--color-text)]": currentPath === href },
+            "nav-link-custom text-decoration-none small",
+            { "active": currentPath === href },
           ]}
         >
           {label}
@@ -26,3 +26,14 @@ const links = [
     ))}
   </ul>
 </nav>
+
+<style>
+  .nav-link-custom {
+    color: var(--color-text-muted);
+    transition: color 0.15s;
+  }
+  .nav-link-custom:hover,
+  .nav-link-custom.active {
+    color: var(--color-text);
+  }
+</style>

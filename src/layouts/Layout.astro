@@ -17,24 +17,24 @@ const socialLinks = [
 ];
 ---
 <!doctype html>
-<html lang="en" class="antialiased">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="alternate" type="application/rss+xml" title="Frank Buckley" href="/rss.xml" />
 		<title>{fullTitle}</title>
 	</head>
-	<body class="min-h-screen flex flex-col text-[var(--color-text)] leading-relaxed">
-		<header class="border-b border-[var(--color-border)] px-8 py-4">
+	<body class="d-flex flex-column min-vh-100" style={`color: var(--color-text); line-height: 1.75;`}>
+		<header class="border-bottom px-4 py-3" style={`border-color: var(--color-border) !important;`}>
 			<Nav />
 		</header>
-		<main class="flex-1 w-full max-w-2xl mx-auto px-8 py-16 max-sm:px-4 max-sm:py-8">
+		<main class="flex-grow-1 w-100 mx-auto px-4 py-5 py-sm-5" style="max-width: 42rem;">
 			<slot />
 		</main>
-		<footer class="border-t border-[var(--color-border)] px-8 py-4 text-center text-sm text-[var(--color-text-muted)]">
-			<nav class="flex justify-center gap-6 mb-2">
+		<footer class="border-top px-4 py-3 text-center small" style={`border-color: var(--color-border) !important; color: var(--color-text-muted);`}>
+			<nav class="d-flex justify-content-center gap-3 mb-2">
 				{socialLinks.map(({ href, label }) => (
-					<a href={href} class="hover:text-[var(--color-text)] transition-colors duration-150" target="_blank" rel="noopener noreferrer">{label}</a>
+					<a href={href} class="link-secondary text-decoration-none" target="_blank" rel="noopener noreferrer">{label}</a>
 				))}
 			</nav>
 			<p>&copy; {new Date().getFullYear()} Frank Buckley</p>

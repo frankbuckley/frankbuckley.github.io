@@ -14,8 +14,8 @@ const { title, description, pubDate, tags } = Astro.props;
 <Layout title={title}>
   <article>
     <header>
-      <h1 class="text-3xl font-bold mb-4 max-sm:text-2xl">{title}</h1>
-      <div class="flex items-center gap-4 mb-8 text-sm text-[var(--color-text-muted)]">
+      <h1 class="fs-2 fw-bold mb-3">{title}</h1>
+      <div class="d-flex align-items-center gap-3 mb-4 small" style={`color: var(--color-text-muted);`}>
         <time datetime={pubDate.toISOString()}>
           {pubDate.toLocaleDateString("en-GB", {
             year: "numeric",
@@ -24,7 +24,7 @@ const { title, description, pubDate, tags } = Astro.props;
           })}
         </time>
         {tags.length > 0 && tags.map((tag) => (
-          <span class="bg-[var(--color-border)] px-2 py-0.5 rounded text-xs">{tag}</span>
+          <span class="badge rounded-pill" style={`background-color: var(--color-border); color: var(--color-text);`}>{tag}</span>
         ))}
       </div>
     </header>

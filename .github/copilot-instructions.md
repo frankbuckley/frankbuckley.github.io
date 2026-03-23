@@ -15,7 +15,7 @@ There are no tests or linters configured.
 ## Architecture
 
 - **Astro 6** static site using `.astro` single-file components
-- **Tailwind CSS 4** for styling via `@tailwindcss/vite` plugin, global styles and theme in `src/styles/default.css`
+- **Bootstrap 5** for styling (CSS only, no JS bundle), with **Bootstrap Icons** via icon font — global styles and theme in `src/styles/default.css`
 - **Content collections** for blog posts — Markdown files in `src/content/blog/`, schema defined in `src/content.config.ts`
 - `src/layouts/Layout.astro` — Base HTML layout with nav, main, footer and an optional `title` prop
 - `src/layouts/BlogPost.astro` — Blog post layout (title, date, tags, content), wraps `Layout`
@@ -42,7 +42,7 @@ The filename (without `.md`) becomes the URL slug: `src/content/blog/my-post.md`
 
 - Site is configured with `trailingSlash: "always"` in `astro.config.mjs` — all internal links must end with `/`
 - TypeScript uses Astro's `strict` preset
-- Use Tailwind utility classes for styling; reference custom theme colours via `var(--color-*)`:
+- Use Bootstrap utility classes for styling; use Bootstrap Icons via `<i class="bi bi-*">` elements; reference custom theme colours via `var(--color-*)`:
   - `--color-text` (`#1a1a1a`), `--color-text-muted` (`#555`), `--color-accent` (`#2563eb`), `--color-border` (`#e5e5e5`)
 - Blog post Markdown content is rendered inside a `.prose` wrapper that styles headings, paragraphs, lists, links, and code blocks
 - Pages import and wrap content in the `Layout` component
