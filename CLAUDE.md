@@ -1,8 +1,8 @@
-# Copilot Instructions
+# CLAUDE.md
 
-This file provides guidance to GitHub Copilot when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-> **Keep in sync** with [`../CLAUDE.md`](../CLAUDE.md) and [`../AGENTS.md`](../AGENTS.md). All three contain the same guidance — when you update one, update the others.
+> **Keep in sync** with [`AGENTS.md`](./AGENTS.md) and [`.github/copilot-instructions.md`](./.github/copilot-instructions.md). All three contain the same guidance — when you update one, update the others.
 
 ## Project
 
