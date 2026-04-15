@@ -10,11 +10,11 @@ const { title = 'Frank Buckley' } = Astro.props;
 const fullTitle = title === 'Frank Buckley' ? title : `${title} — Frank Buckley`;
 
 const socialLinks = [
-	{ href: "https://bsky.app/profile/frankbuckley.com", label: "Bluesky" },
-	{ href: "https://github.com/frankbuckley", label: "Github" },
-	{ href: "https://orcid.org/0000-0002-9708-2705", label: "ORCID" },
-	{ href: "https://www.researchgate.net/profile/Frank-Buckley", label: "ResearchGate" },
-	{ href: "https://www.linkedin.com/in/frankbuckley", label: "LinkedIn" },
+	{ href: "https://bsky.app/profile/frankbuckley.com", label: "Bluesky", icon: "bi-bluesky" },
+	{ href: "https://github.com/frankbuckley", label: "Github", icon: "bi-github" },
+	{ href: "https://orcid.org/0000-0002-9708-2705", label: "ORCID", icon: "bi-link-45deg" },
+	{ href: "https://www.researchgate.net/profile/Frank-Buckley", label: "ResearchGate", icon: "bi-link-45deg" },
+	{ href: "https://www.linkedin.com/in/frankbuckley", label: "LinkedIn", icon: "bi-linkedin" },
 ];
 ---
 <!doctype html>
@@ -34,8 +34,11 @@ const socialLinks = [
 		</main>
 		<footer class="border-top px-4 py-3 text-center small" style={`border-color: var(--color-border) !important; color: var(--color-text-muted);`}>
 			<nav class="d-flex justify-content-center gap-3 mb-2">
-				{socialLinks.map(({ href, label }) => (
-					<a href={href} class="link-secondary text-decoration-none" target="_blank" rel="noopener noreferrer">{label}</a>
+				{socialLinks.map(({ href, label, icon }) => (
+					<a href={href} class="link-secondary text-decoration-none d-inline-flex align-items-center gap-1" target="_blank" rel="noopener noreferrer" aria-label={label}>
+						<i class={`bi ${icon}`} aria-hidden="true"></i>
+						<span>{label}</span>
+					</a>
 				))}
 			</nav>
 			<p>&copy; {new Date().getFullYear()} Frank Buckley</p>
